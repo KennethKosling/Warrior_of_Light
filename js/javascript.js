@@ -76,9 +76,8 @@ function nextLevel(){
 }
 
 function winState(){
-    if(enemies.length == 0){
-        alert('Congratulations! You\'ve defeated all of the shadows and have relit the city!')
-    }
+    alert('Congratulations! You\'ve defeated all of the shadows and have relit the city!')
+    location.reload()
 }
 
 
