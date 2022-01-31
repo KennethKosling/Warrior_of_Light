@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/stylesheet.css" />
 </head>
 <body>
-    <div class='menu'>
+    <div class='menu '>
         <div class='elements '>
             <h1>Warrior of Light</h1>
             <button id='start'>Start</button>
@@ -37,15 +37,22 @@
             <div class='distracted hide'><h2>Distracted!</h2></div>
             <img class='image' src="https://i.imgur.com/ZLrKugG.png" title="source: imgur.com" alt='Shadow Monster'/>
         </div>
+        <div>
+            <button class='continue hide' id='combat_continue'>Continue</button>
+        </div>
+        <div id='skip'><button>Skip Button. Just to save time!</button></div>
     </div>
     <div class='map hide'>
-        <div class='icon'>
+        <div class='icon1' id='icon'>
             <img src="https://i.imgur.com/JU1NCK5.png?1" alt='marker' />
         </div>
         <div class='level1'><h2>Level 1</h2></div>
         <div class='level2'><h2>Level 2</h2></div>
         <div class='level3'><h2>Level 3</h2></div>
         <div class='level4'><h2>Level 4</h2></div>
+        <div>
+            <button class='continue hide' id='map_continue'>Continue</button>
+        </div>
         <div class='base'>
             <img class='line' src="https://i.imgur.com/GoqKowx.png" alt='map line'/>
         </div>

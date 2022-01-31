@@ -16,7 +16,6 @@ body{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows:75px 510px 50px;
     column-gap: 10px;
-    border: solid red;
 }
 
 .map{
@@ -62,59 +61,44 @@ body{
     z-index: 0;
 }
 
-.icon{
-    position: absolute;
-    z-index: 1;
-    padding-left: 442px;
-    padding-top: 712px;
-}
-
 .icon1{
     position: absolute;
     z-index: 1;
     padding-left: 442px;
     padding-top: 712px;
-    animation: firstPos;
-    animation-duration: 8s;
-    animation-delay: 1s;
 }
 
 .icon2{
     position: absolute;
     z-index: 1;
-    padding-left: 771px;
+    padding-left: 442px;
     padding-top: 712px;
-    animation: secPos;
-    animation-duration: 8s;
-    animation-delay: 4s;
+    animation: firstPos;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 }
 
 .icon3{
     position: absolute;
     z-index: 1;
+    padding-left: 771px;
+    padding-top: 712px;
+    animation: secPos;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.icon4{
+    position: absolute;
+    z-index: 1;
     padding-left: 1088px;
     padding-top: 712px;
     animation: thirdPos;
-    animation-duration: 8s;
-    animation-delay: 4s;
-}
-
-@keyframes firstPos {
-    0%{padding-left: 442px}
-    50%{padding-left: 771px}
-    100%{padding-left: 771px}
-}
-
-@keyframes secPos{
-    0%{padding-left: 771px}
-    50%{padding-left: 1088px}
-    100%{padding-left: 1088px}
-}
-
-@keyframes thirdPos{
-    0%{padding-left: 1088px}
-    50%{padding-left: 1400px}
-    100%{padding-left: 1400px}
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 }
 
 .distracted{
@@ -198,6 +182,46 @@ button{
 #introEl{
     height: 25px;
     width: 75px;
+    background: #000000;
+}
+
+#skip{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    top: 90%;
+    left: 48.5%;
+    transform: translateX(-50%);
+}
+
+#map_continue{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: continue;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+#combat_continue{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    top: 75%;
+    left: 48.5%;
+    transform: translateX(-50%);
+    animation: continue;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
 }
 
 .hide{
@@ -207,3 +231,26 @@ button{
 /* div > * {
     border: solid red;
 } */
+
+@keyframes firstPos {
+    0%{padding-left: 442px}
+    100%{padding-left: 771px}
+}
+
+@keyframes secPos{
+    0%{padding-left: 771px}
+    100%{padding-left: 1088px}
+}
+
+@keyframes thirdPos{
+    0%{padding-left: 1088px}
+    100%{padding-left: 1400px}
+}
+
+@keyframes continue{
+    0%{opacity: 0}
+    25%{opacity: 1}
+    50%{opacity: 0}
+    75%{opacity: 1}
+    100%{opacity: 0}
+}

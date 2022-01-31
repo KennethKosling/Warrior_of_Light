@@ -3,6 +3,7 @@
 ///////////////////////
 
 
+const skip = document.querySelector('#skip')
 const menu = document.querySelector('.menu')
 const menuEl = document.querySelector('.elements')
 const startBtn = document.querySelector('#start')
@@ -13,9 +14,12 @@ const attBtn = document.getElementById('attack')
 const abilBtn = document.getElementById('ability')
 const distBtn = document.getElementById('distract')
 const dist = document.querySelectorAll('.distracted')
-const mapIcon = document.querySelector('.icon')
+const mapIcon = document.querySelector('#icon')
 const map = document.querySelector('.map')
+const contBtn_map = document.querySelector('#map_continue')
 const combat = document.querySelector('.combat')
+const contBtn_combat = document.querySelector('#combat_continue')
+
 let playerStatus = document.querySelector('.player')
 let shadowStatus = document.querySelector('.shadow')
 
@@ -28,14 +32,15 @@ let shadowStatus = document.querySelector('.shadow')
 function playerCheck(){
     if(player.hp <= 0){
         alert('You\'ve been defeated! Better luck next time!')
+        location.reload()
     }
 }
 
 function enemyTurn(){
     if(enemies[enemies.length - 1].hp <= 0){
         enemies.pop()
-        alert('You\'ve defeated the shadow! On to the next area!')
-        shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
+        alert('You\'ve defeated the shadow!')
+        nextLevel()
     } else {
         alert('The shadow is preparing to attack!')
         enemies[enemies.length - 1].attack()
@@ -44,7 +49,36 @@ function enemyTurn(){
 }
 
 function nextLevel(){
-    
+    if(enemies.length == 3){
+        setTimeout(() => {
+        contBtn_combat.classList.remove('hide')
+        }, 1000);
+        mapIcon.classList.remove('icon1')
+        mapIcon.classList.add('icon2')
+        console.log(mapIcon)
+    } else if(enemies.length == 2){
+        setTimeout(() => {
+        contBtn_combat.classList.remove('hide')
+        }, 1000);
+        mapIcon.classList.remove('icon2')
+        mapIcon.classList.add('icon3')
+    } else if(enemies.length == 1){
+        setTimeout(() => {
+        contBtn_combat.classList.remove('hide')
+        }, 1000);
+        mapIcon.classList.remove('icon3')
+        mapIcon.classList.add('icon4')
+    } else if(enemies.length == 0){
+        setTimeout(() => {
+        contBtn_combat.classList.remove('hide')
+        }, 1000);
+    }
+}
+
+function winState(){
+    if(enemies.length == 0){
+        alert('Congratulations! You\'ve defeated all of the shadows and have relit the city!')
+    }
 }
 
 
@@ -178,9 +212,24 @@ shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' 
 /////////////////////////////
 
 
+skip.addEventListener('click', evt => {
+    enemies[enemies.length - 1].hp -= enemies[enemies.length - 1].hpMax
+    alert('You hit the shadow!')
+    shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
+    if(enemies[0] && enemies[enemies.length - 1].hp > 0){
+        shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
+    } else if(enemies[enemies.length - 1].hp <= 0){
+        shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + 0
+    }
+    enemyTurn()
+})
+
 startBtn.addEventListener('click', evt => {
     menu.classList.add('hide')
     map.classList.remove('hide')
+    setTimeout(() => {
+        contBtn_map.classList.remove('hide')
+    }, 1000);
 })
 
 introBtn.addEventListener('click', evt => {
@@ -193,6 +242,26 @@ introElBtn.addEventListener('click', evt => {
     menuEl.classList.remove('hide')
 })
 
+contBtn_map.addEventListener('click', evt => {
+    map.classList.add('hide')
+    combat.classList.remove('hide')
+    setTimeout(() => {
+        contBtn_map.classList.add('hide')
+    }, 2000);
+})
+
+attBtn.addEventListener('click', evt => {
+    player.attack()
+    // console.log(enemies[enemies.length - 1].hp)
+    enemyTurn()
+})
+
+abilBtn.addEventListener('click', evt => {
+    player.ability()
+    // console.log(enemies[enemies.length - 1].hp)
+    enemyTurn()
+})
+
 distBtn.addEventListener('click', evt => {
     dist[0].classList.remove('hide')
     dist[1].classList.remove('hide')
@@ -200,14 +269,20 @@ distBtn.addEventListener('click', evt => {
     enemyTurn()
 })
 
-attBtn.addEventListener('click', evt => {
-    player.attack()
-    console.log(enemies[enemies.length - 1].hp)
-    enemyTurn()
-})
-
-abilBtn.addEventListener('click', evt => {
-    player.ability()
-    console.log(enemies[enemies.length - 1].hp)
-    enemyTurn()
+contBtn_combat.addEventListener('click', evt => {
+    if(!enemies.length == 0){
+        combat.classList.add('hide')
+        map.classList.remove('hide')
+        setTimeout(() => {
+        shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
+        }, 1000)
+        setTimeout(() => {
+            contBtn_combat.classList.add('hide')
+        }, 1000);
+        setTimeout(() => {
+            contBtn_map.classList.remove('hide')
+        }, 6000);
+    } else {
+        winState()
+    }
 })
