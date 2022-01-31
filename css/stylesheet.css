@@ -1,0 +1,209 @@
+body{
+    background-image: url("https://www.itl.cat/pngfile/big/16-165666_dark-city-cartoon-dark-city-background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.combat{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+}
+
+.model{
+    height: 640px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:75px 510px 50px;
+    column-gap: 10px;
+    border: solid red;
+}
+
+.map{
+    height: 100%;
+}
+
+.level1{
+    position: absolute;
+    padding-left: 420px;
+    padding-top: 725px;
+    color: white;
+    z-index: 1;
+}
+
+.level2{
+    position: absolute;
+    padding-left: 748px;
+    padding-top: 725px;
+    color: white;
+    z-index: 1;
+}
+
+.level3{
+    position: absolute;
+    padding-left: 1065px;
+    padding-top: 725px;
+    color: white;
+    z-index: 1;
+}
+
+.level4{
+    position: absolute;
+    padding-left: 1378px;
+    padding-top: 725px;
+    color: white;
+    z-index: 1;
+}
+
+.base{
+    position: absolute;
+    padding-left: 435px;
+    padding-top: 700px;
+    z-index: 0;
+}
+
+.icon{
+    position: absolute;
+    z-index: 1;
+    padding-left: 442px;
+    padding-top: 712px;
+}
+
+.icon1{
+    position: absolute;
+    z-index: 1;
+    padding-left: 442px;
+    padding-top: 712px;
+    animation: firstPos;
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.icon2{
+    position: absolute;
+    z-index: 1;
+    padding-left: 771px;
+    padding-top: 712px;
+    animation: secPos;
+    animation-duration: 8s;
+    animation-delay: 4s;
+}
+
+.icon3{
+    position: absolute;
+    z-index: 1;
+    padding-left: 1088px;
+    padding-top: 712px;
+    animation: thirdPos;
+    animation-duration: 8s;
+    animation-delay: 4s;
+}
+
+@keyframes firstPos {
+    0%{padding-left: 442px}
+    50%{padding-left: 771px}
+    100%{padding-left: 771px}
+}
+
+@keyframes secPos{
+    0%{padding-left: 771px}
+    50%{padding-left: 1088px}
+    100%{padding-left: 1088px}
+}
+
+@keyframes thirdPos{
+    0%{padding-left: 1088px}
+    50%{padding-left: 1400px}
+    100%{padding-left: 1400px}
+}
+
+.distracted{
+    grid-column: 3/4
+}
+
+#shadow{
+    grid-column: 4/5;
+}
+
+.status{
+    grid-column: 1/3;
+}
+
+.image{
+    grid-column: 1/4;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+
+h2{
+    color: white;
+}
+
+.intro{
+    height: 450px;
+    width: 500px;
+    border-radius: 15%;
+    text-align: center;
+    margin: 0;
+    top: 0%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(75,0,0);
+}
+
+h3{
+    color: white;
+    margin: 20px 15px;
+}
+
+button{
+    color: white;
+    background: rgb(100,0,0);
+}
+
+.menu{
+    height: 200px;
+    position: relative;
+    margin: 0;
+    transform: translate(0%, 100%);
+}
+  
+#start{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#intro {
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#introEl{
+    height: 25px;
+    width: 75px;
+}
+
+.hide{
+    display: none!important;
+}
+
+/* div > * {
+    border: solid red;
+} */

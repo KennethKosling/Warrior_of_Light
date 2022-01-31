@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warrior of Light</title>
+    <script defer src='js/javascript.js'></script>
+    <link rel="stylesheet" href="css/stylesheet.css" />
+</head>
+<body>
+    <div class='menu'>
+        <div class='elements '>
+            <h1>Warrior of Light</h1>
+            <button id='start'>Start</button>
+            <button id='intro'>How to Play</button>
+        </div>
+        <div class='intro hide'>
+            <h3>Overview:</h3>
+            <h3>You are the Warrior of Light! The shadows have taken the city and it's your job to drive them out and save the city. Battle the shadow soldier in each area to light it up.</h3>
+            <h3>Combat:</h3>
+            <h3>To help you in your endeavor, you have a couple of options. Your first option is to attack the shadow physically. This will just do basic damage. Your second option is to use your power of light. This will do massive damage but can only be used a certain amount of times. Your third and final option is to distract the enemy. This will make it harder for the enemy to see and attack, but takes an extra turn. You only have a set amount of health and each enemy gets harder, so be careful!</h3>
+            <button id='introEl'>Return</button>
+        </div>
+    </div>
+    <div class='combat hide'>
+        <div class='model' id='player'>
+            <h2 class='player status'></h2>
+            <div class='distracted hide'><h2>Distracted!</h2></div>
+            <img class='image' src="https://i.imgur.com/NNyi5Em.png" title="source: imgur.com" alt='Warrior of Light'/>
+            <button id='attack'>Attack</button>
+            <button id='ability'>Ability</button>
+            <button id='distract'>Distract</button>
+        </div>
+        <div class='model' id='shadow'>
+            <h2 class='shadow status'></h2>
+            <div class='distracted hide'><h2>Distracted!</h2></div>
+            <img class='image' src="https://i.imgur.com/ZLrKugG.png" title="source: imgur.com" alt='Shadow Monster'/>
+        </div>
+    </div>
+    <div class='map hide'>
+        <div class='icon'>
+            <img src="https://i.imgur.com/JU1NCK5.png?1" alt='marker' />
+        </div>
+        <div class='level1'><h2>Level 1</h2></div>
+        <div class='level2'><h2>Level 2</h2></div>
+        <div class='level3'><h2>Level 3</h2></div>
+        <div class='level4'><h2>Level 4</h2></div>
+        <div class='base'>
+            <img class='line' src="https://i.imgur.com/GoqKowx.png" alt='map line'/>
+        </div>
+    </div>
+</body>
+</html>
