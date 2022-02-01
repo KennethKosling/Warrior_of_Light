@@ -3,7 +3,7 @@
 ///////////////////////
 
 
-const skip = document.querySelector('#skip')
+// const skip = document.querySelector('#skip')
 const menu = document.querySelector('.menu')
 const menuEl = document.querySelector('.elements')
 const startBtn = document.querySelector('#start')
@@ -233,17 +233,17 @@ shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' 
 /////////////////////////////
 
 
-skip.addEventListener('click', evt => {
-    enemies[enemies.length - 1].hp -= enemies[enemies.length - 1].hpMax
-    alert('You hit the shadow!')
-    shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
-    if(enemies[0] && enemies[enemies.length - 1].hp > 0){
-        shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
-    } else if(enemies[enemies.length - 1].hp <= 0){
-        shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + 0
-    }
-    enemyTurn()
-})
+// skip.addEventListener('click', evt => {
+//     enemies[enemies.length - 1].hp -= enemies[enemies.length - 1].hpMax
+//     alert('You hit the shadow!')
+//     shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
+//     if(enemies[0] && enemies[enemies.length - 1].hp > 0){
+//         shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + enemies[enemies.length - 1].hp
+//     } else if(enemies[enemies.length - 1].hp <= 0){
+//         shadowStatus.textContent = 'Health: ' + enemies[enemies.length - 1].hpMax + '/' + 0
+//     }
+//     enemyTurn()
+// })
 
 startBtn.addEventListener('click', evt => {
     menu.classList.add('hide')
