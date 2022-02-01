@@ -224,6 +224,14 @@ button{
     animation-iteration-count: infinite;
 }
 
+#abilBtn:disabled{
+    filter: brightness(25%)
+}
+
+#distBtn:disabled{
+    filter: brightness(25%)
+}
+
 .hide{
     display: none!important;
 }

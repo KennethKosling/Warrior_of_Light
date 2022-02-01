@@ -80,6 +80,25 @@ function winState(){
     location.reload()
 }
 
+function checkAbility(){
+    if(player.abilityCounter === 6){
+        abilBtn.disabled = true
+    }
+}
+
+let counter = 0
+
+function distractRefresh(){
+    counter++
+    if(counter === 2){
+        distBtn.disabled = false
+        dist[0].classList.add('hide')
+        dist[1].classList.add('hide')
+        enemies[enemies.length - 1].accuracy += .2
+        counter = 0
+    }
+}
+
 
 ////////////////////////////////
 ///    OBJECTS AND ARRAYS    ///
@@ -92,6 +111,7 @@ const player = {
     hp: 150,
     att: 10,
     accuracy: .7,
+    abilityCounter: 0,
 
     attack(){
         if(Math.random() < player.accuracy){
@@ -110,6 +130,8 @@ const player = {
 
     ability(){
         if(Math.random() < player.accuracy){
+            player.abilityCounter += 1
+            checkAbility()
             enemies[enemies.length - 1].hp -= (player.att * 2);
             alert('You hit the shadow!');
             if(enemies[0] && enemies[enemies.length - 1].hp > 0){
@@ -251,13 +273,13 @@ contBtn_map.addEventListener('click', evt => {
 
 attBtn.addEventListener('click', evt => {
     player.attack()
-    // console.log(enemies[enemies.length - 1].hp)
+    distractRefresh()
     enemyTurn()
 })
 
 abilBtn.addEventListener('click', evt => {
     player.ability()
-    // console.log(enemies[enemies.length - 1].hp)
+    distractRefresh()
     enemyTurn()
 })
 
@@ -265,6 +287,8 @@ distBtn.addEventListener('click', evt => {
     dist[0].classList.remove('hide')
     dist[1].classList.remove('hide')
     enemies[enemies.length - 1].accuracy -= .2
+    distBtn.disabled = true
+    console.log(distBtn)
     enemyTurn()
 })
 
